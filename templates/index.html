@@ -1,7 +1,11 @@
-<h1>Test</h1>
+{% extends 'base.html' %}
+{% block content %}
 
 {% for log in context %}
-<h2>{{ log.title }}</h2>
-<p>{{ log.text }}</p>
+<div class="post-entry">
+    <h2><a href="{% url 'log_detail' log.pk %}">{{ log }}</a></h2>
+    <p>{{ log.date }}</p>
+</div>
 
 {% endfor %}
+{% endblock content %}

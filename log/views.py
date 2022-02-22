@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_list_or_404, get_object_or_404
 from .models import Log
 from .forms import LogForm
@@ -28,7 +28,30 @@ def store_log(request):
         return HttpResponse('Your log post has been saved')
 
 
+def update_log(request, pk):
+    # dictionary for initial data with
+    # field names as keys
+    context = {}
+
+    # fetch the object related to passed id
+    log = get_object_or_404(Log, pk=pk)
+
+    # pass the object as instance in form
+    form = LogForm(request.POST or None, instance=log)
+
+    # save the data from the form and
+    # redirect to detail_view
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect("/")
+
+    # add form dictionary to context
+    context["form"] = form
+
+    return render(request, 'update_log.html', context)
+
+
 def delete_log(request, pk):
     log = Log.objects.get(pk=pk)
     log.delete()
-    return HttpResponse('Your log post has been deleted')
+    return HttpResponseRedirect("/")

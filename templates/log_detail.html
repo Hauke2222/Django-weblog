@@ -9,5 +9,7 @@
         </tr>
         {% endfor %}
     </table>
+    <a href="{% url 'update_log' log.pk %}">+ Edit</a>
+    <a href="{% url 'delete_log' log.pk %}">+ Delete</a>
 </div>
 {% endblock content %}

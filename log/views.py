@@ -7,7 +7,7 @@ from .forms import LogForm
 
 
 def index(request):
-    context = get_list_or_404(Log)
+    context = get_list_or_404(Log.objects.all().order_by('-date'))
     return render(request, 'index.html', {'context': context})
 
 
@@ -25,7 +25,7 @@ def store_log(request):
     form = LogForm(request.POST)
     if form.is_valid():
         form.save()
-        return HttpResponse('Your log post has been saved')
+        return HttpResponseRedirect("/")
 
 
 def update_log(request, pk):

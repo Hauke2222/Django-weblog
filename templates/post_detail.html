@@ -2,14 +2,14 @@
 {% block content %}
 <div class="post-entry">
     <table>
-        {% for label, value in log.get_fields %}
+        {% for label, value in post.get_fields %}
         <tr>
             <td>{{ label }}</td>
             <td>{{ value }}</td>
         </tr>
         {% endfor %}
     </table>
-    <a href="{% url 'update_log' log.pk %}">+ Edit</a>
-    <a href="{% url 'delete_log' log.pk %}">+ Delete</a>
+    <a href="{% url 'update_post' post.pk %}">+ Edit</a>
+    <a href="{% url 'delete_post' post.pk %}">+ Delete</a>
 </div>
 {% endblock content %}

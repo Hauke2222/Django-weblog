@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
 
-{% for log in context %}
+{% for post in context %}
 <div class="post-entry">
-    <h2><a href="{% url 'log_detail' log.pk %}">{{ log }}</a></h2>
-    <p>{{ log.date }}</p>
+    <h2><a href="{% url 'post_detail' post.pk %}">{{ post }}</a></h2>
+    <p>{{ post.date }}</p>
 </div>
 
 {% endfor %}

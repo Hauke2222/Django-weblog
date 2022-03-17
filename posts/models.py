@@ -9,6 +9,7 @@ class Post(models.Model):
     author = models.CharField(max_length=250)
     text = models.TextField()
     note = models.CharField(max_length=250)
+    image = models.ImageField(blank=True, upload_to="images/")
 
     def __str__(self):
         return self.title

@@ -9,7 +9,12 @@
         </tr>
         {% endfor %}
     </table>
-    <a href="{% url 'update_post' post.pk %}">+ Edit</a>
-    <a href="{% url 'delete_post' post.pk %}">+ Delete</a>
+    
+    {% if post.image.url %}
+    <img src="{{post.image.url}}" width="500">
+        <h1>Test</h1>
+      {% endif %} 
+    <a href="{% url 'update_post' post.pk %}">Edit</a>
+    <a href="{% url 'delete_post' post.pk %}">Delete</a>
 </div>
 {% endblock content %}

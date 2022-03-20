@@ -7,25 +7,33 @@ from .forms import PostForm
 
 
 def index(request):
-    context = get_list_or_404(Post.objects.all().order_by('-date'))
-    return render(request, 'index.html', {'context': context})
+    context = get_list_or_404(Post.objects.all().order_by("-date"))
+    return render(request, "index.html", {"context": context})
 
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    return render(request, 'post_detail.html', {'post': post})
+    return render(request, "post_detail.html", {"post": post})
 
 
 def create_post(request):
     form = PostForm()
-    return render(request, 'create_post.html', {'form': form, })
+    return render(
+        request,
+        "create_post.html",
+        {
+            "form": form,
+        },
+    )
 
 
 def store_post(request):
-    form = PostForm(request.POST)
+    form = PostForm(request.POST, request.FILES)
     if form.is_valid():
         form.save()
         return HttpResponseRedirect("/")
+    else:
+        return HttpResponse("Form not valid")
 
 
 def update_post(request, pk):
@@ -48,7 +56,7 @@ def update_post(request, pk):
     # add form dictionary to context
     context["form"] = form
 
-    return render(request, 'update_post.html', context)
+    return render(request, "update_post.html", context)
 
 
 def delete_post(request, pk):

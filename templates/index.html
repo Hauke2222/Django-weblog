@@ -6,10 +6,8 @@
     <h2><a href="{% url 'post_detail' post.pk %}">{{ post }}</a></h2>
     <p>{{ post.date }}</p>
     {% comment %} <img src="{{ post.image.url}}" alt="image"> {% endcomment %}
-
     {% if post.image.url %}
     <img src="{{post.image.url}}" width="250">
-        <h1>Test</h1>
       {% endif %} 
 </div>
 

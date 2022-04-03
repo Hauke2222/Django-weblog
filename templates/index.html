@@ -2,13 +2,14 @@
 {% block content %}
 
 {% for post in context %}
-<div class="post-entry">
-    <h2><a href="{% url 'post_detail' post.pk %}">{{ post }}</a></h2>
-    <p>{{ post.date }}</p>
-    {% comment %} <img src="{{ post.image.url}}" alt="image"> {% endcomment %}
-    {% if post.image.url %}
-    <img src="{{post.image.url}}" width="250">
-      {% endif %} 
+<div class="post-entry center">
+  <a href="{% url 'post_detail' post.pk %}">
+    <div>
+      <h2>{{post}}</h2>
+      <p>{{ post.date }}</p>
+    </div>
+    <img src="{{post.image.url}}" width="350">
+  </a>
 </div>
 
 {% endfor %}

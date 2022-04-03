@@ -33,10 +33,6 @@ th {
     margin-bottom: 2rem;
 }
 
-.post-entry h2 {
-    margin: 0.5rem 0;
-}
-
 .post-entry h2 a,
 .post-entry h2 a:visited {
     color: #0066cc;
@@ -49,5 +45,10 @@ th {
 }
 
 .post-entry h2 a:hover {
-    color: red;
+    color: white;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
 }

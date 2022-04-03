@@ -1,19 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="post-entry">
-    <table>
-        {% for label, value in post.get_fields %}
-        <tr>
-            <td>{{ label }}</td>
-            <td>{{ value }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-    
+    <h1>{{ post.title }}</h1>
+    <h2>{{ post.date }}</h2>
+    <h4>Category: {{ post.category.name}}</h4>
+    <h4>Author: {{ post.author }}</h4>
+
     {% if post.image.url %}
-    <img src="{{post.image.url}}" width="500">
-        <h1>Test</h1>
-      {% endif %} 
+    <img src="{{post.image.url}}" width="350">
+    {% endif %}
+
+    <p>{{ post.text }}</p>
+
     <a href="{% url 'update_post' post.pk %}">Edit</a>
     <a href="{% url 'delete_post' post.pk %}">Delete</a>
 </div>

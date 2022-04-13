@@ -28,3 +28,11 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
+class Comment(models.Model):
+    # author =
+    name = models.CharField(max_length=250)
+    text = models.TextField()
+
+    def __str__(self):
+        return self.text

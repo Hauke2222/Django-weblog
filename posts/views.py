@@ -1,7 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_list_or_404, get_object_or_404
 from .models import Post
-from .forms import PostForm
+from .forms import PostForm, CommentForm
 
 # Create your views here.
 
@@ -13,7 +13,8 @@ def index(request):
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    return render(request, "post_detail.html", {"post": post})
+    form = CommentForm()
+    return render(request, "post_detail.html", {"post": post, "form": form})
 
 
 def create_post(request):
@@ -25,6 +26,15 @@ def create_post(request):
             "form": form,
         },
     )
+
+
+def store_comment(request):
+    form = CommentForm(request.POST)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect("/")
+    else:
+        return HttpResponse("Form not valid")
 
 
 def store_post(request):

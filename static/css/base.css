@@ -1,9 +1,14 @@
 body {
-    font-family: 'Source Sans Pro', sans-serif;
+    margin: 40px auto;
+    max-width: 50em;
+    line-height: 1.6;
     font-size: 18px;
+    color: #444;
+    padding: 0 10px
 }
-html {
-    background-color: #fdf6e3;
+
+h1,h2,h3 {
+    line-height: 1.2
 }
 
 header {
@@ -17,38 +22,14 @@ header h1 a {
     text-decoration: none;
 }
 
-th {
-    text-align: left;
-}
+a:link{
+    text-decoration: underline dotted;
+    cursor: pointer;
+  }
 
 .nav-left {
     margin-right: auto;
 }
-
 .nav-right {
     display: flex;
-}
-
-.post-entry {
-    margin-bottom: 2rem;
-}
-
-.post-entry h2 a,
-.post-entry h2 a:visited {
-    color: #0066cc;
-    text-decoration: none;
-}
-
-.post-entry p {
-    margin: 0;
-    font-weight: 400;
-}
-
-.post-entry h2 a:hover {
-    color: white;
-}
-
-.center {
-    display: flex;
-    justify-content: center;
 }

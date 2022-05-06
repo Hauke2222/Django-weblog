@@ -1,16 +1,12 @@
-{% extends 'base.html' %}
-{% block content %}
-
-{% for post in context %}
+{% extends 'base.html' %} {% block content %} {% for post in context %}
 <div class="post-entry center">
   <a href="{% url 'post_detail' post.pk %}">
     <div>
       <h2>{{post}}</h2>
       <p>{{ post.date }}</p>
     </div>
-    <img src="{{post.image.url}}" width="350">
+    <img src="{{post.image.url}}" width="350" />
   </a>
 </div>
 
-{% endfor %}
-{% endblock content %}
+{% endfor %} {% endblock content %}

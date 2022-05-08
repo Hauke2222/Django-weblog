@@ -1,6 +1,6 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_list_or_404, get_object_or_404
-from .models import Post
+from .models import Post, Comment
 from .forms import PostForm, CommentForm
 
 # Create your views here.
@@ -14,6 +14,7 @@ def index(request):
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     form = CommentForm()
+    comments = Comment.objects.filter(comments_id=post_id)
     return render(request, "post_detail.html", {"post": post, "form": form})
 
 

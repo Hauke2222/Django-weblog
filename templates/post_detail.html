@@ -2,8 +2,8 @@
 <div class="post-entry">
   <h1>{{ post.title }}</h1>
   <h2>{{ post.date }}</h2>
-  <h4>Category: {{ post.category.name}}</h4>
-  <h4>Author: {{ post.author }}</h4>
+  <p>Category: {{ post.category.name}}</p>
+  <p>Author: {{ post.author }}</p>
 
   {% if post.image.url %}
   <img src="{{post.image.url}}" width="350" />

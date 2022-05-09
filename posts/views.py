@@ -14,7 +14,7 @@ def index(request):
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     form = CommentForm()
-    comments = Comment.objects.filter(comments_id=post_id)
+    # comments = Comment.objects.filter(comments_id=post_id)
     return render(request, "post_detail.html", {"post": post, "form": form})
 
 
